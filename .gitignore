@@ -1,0 +1,6 @@
+# Ignorar directorios de logs
+logs/
+*.log
+
+# Ignorar configuraciones específicas de IDE
+.idea/
