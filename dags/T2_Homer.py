@@ -4,6 +4,7 @@ from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
 
+
 default_args = {
     'owner': 'HomerSimpson',
     'start_date' : datetime(2025, 1, 14, 11, 0, 0)
