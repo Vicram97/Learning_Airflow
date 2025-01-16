@@ -4,3 +4,6 @@ logs/
 
 # Ignorar configuraciones específicas de IDE
 .idea/
+
+__pycache__/
+*.pyc
