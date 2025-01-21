@@ -7,7 +7,7 @@ import random
 # Definir los parámetros por defecto para el DAG
 default_args = {
     'owner': 'Victor',
-    'start_date': datetime(2025, 1, 21),  # Ajusta la fecha a tu necesidad
+    'start_date': datetime(2025, 1, 22),  # Ajusta la fecha a tu necesidad
     "email_on_success": True,  # Esta opción también enviará un correo en caso de éxito
     "email": "ramosfuentesvictor@example.com",  # Este es el correo al cual se enviarán las notificaciones (opcional)
 }
@@ -30,7 +30,7 @@ def obtener_refran():
 
 # Crear el objeto DAG
 dag = DAG(
-    'send_email_dag',  # Nombre del DAG
+    'send_email_to_Paula',  # Nombre del DAG
     default_args=default_args,
     schedule_interval="@daily",  # No se ejecutará de manera automática, puede ser programado según lo que necesites
     catchup=True,  # No se ejecutarán tareas pendientes desde fechas pasadas
@@ -45,10 +45,10 @@ start_task = EmptyOperator(
 # Definir la tarea EmailOperator para enviar el correo electrónico
 
 send_email_task = EmailOperator(
-    task_id='send_email',
-    to=['ramosfuentesvictor@gmail.com', 'fuentesmaldonadosacramento@gmail.com'],  # Aquí coloca el correo del destinatario
-    subject='Refrán del día',
-    html_content=f"<h1>¡Buenos días!</h1><p>Refrán del día: <b>{obtener_refran()}</b></p>",
+    task_id='send_email',#'pau.guijarroj@gmail.com'
+    to=['ramosfuentesvictor@gmail.com', 'pau.guijarroj@gmail.com'],  # Aquí coloca el correo del destinatario
+    subject='Aquello que nunca debes olvidar',
+    html_content=f"<h1>¡Buenos días!</h1><p>Refrán del día: {obtener_refran()}</p><p>P.D. What are you most worried about? <b>Fernando Alonso<b> <p>",
     dag=dag,
 )
 
